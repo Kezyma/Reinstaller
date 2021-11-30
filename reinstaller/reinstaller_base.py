@@ -17,7 +17,7 @@ class ReinstallerBase():
     #endregion
 
     def version(self):
-        return mobase.VersionInfo(1, 0, 1, mobase.ReleaseType.ALPHA) 
+        return mobase.VersionInfo(1, 0, 2, mobase.ReleaseType.ALPHA) 
 
     def isActive(self):
         return self.reinstaller.settings.enabled()
