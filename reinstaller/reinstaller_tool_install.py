@@ -1,9 +1,16 @@
 from PyQt5.QtCore import QCoreApplication
-from .reinstaller_tool import ReinstallerTool
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QListWidgetItem 
+from PyQt5 import QtWidgets, QtCore
+from pathlib import Path
 from .reinstaller import Reinstaller
+from .reinstaller_base import ReinstallerBase
 import mobase
 
-class ReinstallerInstallTool(ReinstallerTool):
+
+class ReinstallerInstallTool(ReinstallerBase, mobase.IPluginTool):
+
+    #region Init
     def __init__(self):
         super(ReinstallerInstallTool, self).__init__()
 
@@ -11,9 +18,16 @@ class ReinstallerInstallTool(ReinstallerTool):
         self.organiser = organiser
         self.reinstaller = Reinstaller(self.organiser)
         return True
+    #endregion
 
+    def settings(self):
+        return []
+
+    def __tr(self, trstr):
+        return QCoreApplication.translate("Reinstaller", trstr)
+        
     def name(self):
-        return self.baseName() + " Install Tool"
+        return self.baseName() + "Install Tool"
 
     def displayName(self):
         return self.baseDisplayName() + "/Install"
@@ -22,10 +36,7 @@ class ReinstallerInstallTool(ReinstallerTool):
         return self.tooltip()
 
     def tooltip(self):
-        return self.__tr("Runs a patch installer from those backed up.")
-
-    def __tr(self, trstr):
-        return QCoreApplication.translate("Reinstaller", trstr)
+        return self.__tr("Runs an installer from a backed up file.")
 
     def display(self):
         self.reinstaller.install()

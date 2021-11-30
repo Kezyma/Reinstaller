@@ -1,9 +1,16 @@
 from PyQt5.QtCore import QCoreApplication
-from .reinstaller_tool import ReinstallerTool
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QListWidgetItem 
+from PyQt5 import QtWidgets, QtCore
+from pathlib import Path
 from .reinstaller import Reinstaller
+from .reinstaller_base import ReinstallerBase
 import mobase
 
-class ReinstallerDeleteTool(ReinstallerTool):
+
+class ReinstallerDeleteTool(ReinstallerBase, mobase.IPluginTool):
+
+    #region Init
     def __init__(self):
         super(ReinstallerDeleteTool, self).__init__()
 
@@ -11,9 +18,16 @@ class ReinstallerDeleteTool(ReinstallerTool):
         self.organiser = organiser
         self.reinstaller = Reinstaller(self.organiser)
         return True
+    #endregion
 
+    def settings(self):
+        return []
+
+    def __tr(self, trstr):
+        return QCoreApplication.translate("Reinstaller", trstr)
+        
     def name(self):
-        return self.baseName() + " Delete Tool"
+        return self.baseName() + "Delete Tool"
 
     def displayName(self):
         return self.baseDisplayName() + "/Delete"
@@ -22,10 +36,7 @@ class ReinstallerDeleteTool(ReinstallerTool):
         return self.tooltip()
 
     def tooltip(self):
-        return self.__tr("Deletes a patch installer from those backed up.")
-
-    def __tr(self, trstr):
-        return QCoreApplication.translate("Reinstaller", trstr)
+        return self.__tr("Deletes a downloaded file.")
 
     def display(self):
         self.reinstaller.delete()

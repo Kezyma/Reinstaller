@@ -16,6 +16,9 @@ Delete the following folders from Mod Organizer, assuming Mod Organizer is insta
 ### Usage
 A new item will appear in the tools menu of Mod Organizer with the three main functions of Reinstaller, install, create and delete.
 
+### Reinstaller
+The Reinstaller option will open a manager window for easily managing backed up installers.
+
 #### Create
 Takes a backup of a file from your current downloads folder and stores it.
 
