@@ -38,5 +38,8 @@ class ReinstallerInstallTool(ReinstallerBase, mobase.IPluginTool):
     def tooltip(self):
         return self.__tr("Runs an installer from a backed up file.")
 
+    def master(self):
+        return self.baseName()
+
     def display(self):
         self.reinstaller.install()

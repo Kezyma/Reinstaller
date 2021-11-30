@@ -38,5 +38,8 @@ class ReinstallerDeleteTool(ReinstallerBase, mobase.IPluginTool):
     def tooltip(self):
         return self.__tr("Deletes a downloaded file.")
 
+    def master(self):
+        return self.baseName()
+
     def display(self):
         self.reinstaller.delete()

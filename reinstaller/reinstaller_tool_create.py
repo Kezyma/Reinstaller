@@ -38,5 +38,8 @@ class ReinstallerCreateTool(ReinstallerBase, mobase.IPluginTool):
     def tooltip(self):
         return self.__tr("Creates a new installer from a downloaded file.")
 
+    def master(self):
+        return self.baseName()
+
     def display(self):
         self.reinstaller.create()
