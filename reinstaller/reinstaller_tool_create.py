@@ -2,6 +2,7 @@ from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QListWidgetItem 
 from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtGui import QIcon
 from pathlib import Path
 from .reinstaller import Reinstaller
 from .reinstaller_base import ReinstallerBase
@@ -25,6 +26,9 @@ class ReinstallerCreateTool(ReinstallerBase, mobase.IPluginTool):
 
     def __tr(self, trstr):
         return QCoreApplication.translate("Reinstaller", trstr)
+
+    def icon(self):
+        return QIcon(str(Path(__file__).parent.joinpath("ui-plus.ico")))
         
     def name(self):
         return self.baseName() + "Create Tool"

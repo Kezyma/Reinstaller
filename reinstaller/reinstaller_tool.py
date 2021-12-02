@@ -2,6 +2,7 @@ from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QListWidgetItem 
 from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtGui import QIcon
 from pathlib import Path
 from .reinstaller import Reinstaller
 from .reinstaller_base import ReinstallerBase

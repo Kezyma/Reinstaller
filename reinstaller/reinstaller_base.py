@@ -17,7 +17,7 @@ class ReinstallerBase():
     #endregion
 
     def version(self):
-        return mobase.VersionInfo(1, 0, 3, mobase.ReleaseType.ALPHA) 
+        return mobase.VersionInfo(1, 0, 4, mobase.ReleaseType.ALPHA) 
 
     def isActive(self):
         return self.reinstaller.settings.enabled()
@@ -26,7 +26,7 @@ class ReinstallerBase():
         return QCoreApplication.translate("Reinstaller", trstr)
 
     def icon(self):
-        return QIcon(str(Path(__file__).parent.joinpath("rootbuilder.ico")))
+        return QIcon(str(Path(__file__).parent.joinpath("ui-menu.ico")))
 
     def author(self):
         return "Kezyma"
