@@ -1,3 +1,5 @@
+# Repository moved to [ModOrganizer-Plugins](https://github.com/Kezyma/ModOrganizer-Plugins)
+
 # Reinstaller
 ## v1.0.*
 
